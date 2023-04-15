@@ -29,7 +29,7 @@ export const createInstancia = async (name: string) => {
       },
     });
 
-    console.log('request<'+url+'> :: ' + result);
+    console.log('request<'+url+'>', result);
 
     const connect = await connectInstancia(name);
     return connect;
@@ -84,7 +84,7 @@ export const statusInstancia = async (name: string) => {
       },
     });
 
-    console.log('request<'+url+'> :: ' + result);
+    console.log('request<'+url+'>', result);
 
     return result;
 
