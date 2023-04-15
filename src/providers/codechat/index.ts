@@ -75,12 +75,16 @@ export const statusInstancia = async (name: string) => {
   try {
     const url = `${CODECHAT_BASE_URL}/instance/connectionState/${name}`;
 
+    console.log('request<'+url+'> :: ' + name + ' with ' + CODECHAT_API_KEY);
+
     const result = await axios.get(url, {
       headers: {
         'apikey': CODECHAT_API_KEY,
         'Content-Type': 'application/json'
       },
     });
+
+    console.log('request<'+url+'> :: ' + result);
 
     return result;
 
