@@ -20,12 +20,16 @@ export const createInstancia = async (name: string) => {
       instanceName: name,
     };
 
-    await axios.post(url, JSON.stringify(data), {
+    console.log('request<'+url+'> :: ' + name);
+
+    let result = await axios.post(url, JSON.stringify(data), {
       headers: {
         'apikey': CODECHAT_API_KEY,
         'Content-Type': 'application/json'
       },
     });
+
+    console.log('request<'+url+'> :: ' + result);
 
     const connect = await connectInstancia(name);
     return connect;

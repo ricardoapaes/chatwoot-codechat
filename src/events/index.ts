@@ -42,6 +42,7 @@ export const eventChatWoot = async (body: any) => {
         }
       }
       catch (error) {
+        console.log('Erro: ' + error);
         await createInstancia(body.inbox.name);
       }
 
