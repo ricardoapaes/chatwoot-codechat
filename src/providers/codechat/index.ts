@@ -20,7 +20,7 @@ export const createInstancia = async (name: string) => {
       instanceName: name,
     };
 
-    const result = await axios.post(url, JSON.stringify(data), {
+    await axios.post(url, JSON.stringify(data), {
       headers: {
         'apikey': CODECHAT_API_KEY,
         'Content-Type': 'application/json'
