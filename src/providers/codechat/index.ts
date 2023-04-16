@@ -20,16 +20,12 @@ export const createInstancia = async (name: string) => {
       instanceName: name,
     };
 
-    console.log('request<'+url+'> :: ' + name);
-
-    let result = await axios.post(url, JSON.stringify(data), {
+    const result = await axios.post(url, JSON.stringify(data), {
       headers: {
         'apikey': CODECHAT_API_KEY,
         'Content-Type': 'application/json'
       },
     });
-
-    console.log('request<'+url+'>', result);
 
     const connect = await connectInstancia(name);
     return connect;
@@ -75,16 +71,12 @@ export const statusInstancia = async (name: string) => {
   try {
     const url = `${CODECHAT_BASE_URL}/instance/connectionState/${name}`;
 
-    console.log('request<'+url+'> :: ' + name + ' with ' + CODECHAT_API_KEY);
-
     const result = await axios.get(url, {
       headers: {
         'apikey': CODECHAT_API_KEY,
         'Content-Type': 'application/json'
       },
     });
-
-    console.log('request<'+url+'>', result);
 
     return result;
 

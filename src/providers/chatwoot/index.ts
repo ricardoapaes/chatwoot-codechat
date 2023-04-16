@@ -12,9 +12,6 @@ const client = new ChatwootClient({
   }
 });
 
-console.log('ACCOUNT_ID', ACCOUNT_ID);
-console.log('CHATWOOT_TOKEN', CHATWOOT_TOKEN);
-
 export const getContact = async (id: number) => {
   const contact = await client.contact.getContactable({
     accountId: +ACCOUNT_ID,
