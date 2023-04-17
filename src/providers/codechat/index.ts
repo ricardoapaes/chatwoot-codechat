@@ -109,6 +109,7 @@ export const sendText = async (message: string, number: string, instancia: strin
     return result;
   }
   catch (error) {
+    console.log(`🚨 error sending message: ${error}`);
     throw new Error(error);
   }
 };

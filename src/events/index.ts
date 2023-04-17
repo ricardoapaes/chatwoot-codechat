@@ -96,8 +96,8 @@ export const eventChatWoot = async (body: any) => {
               body.inbox.name,
               formatText
             );
-          } catch (err) {
-            console.log(`🚨 error sending attachment: ${err}`);
+          } catch (error) {
+            console.log(`🚨 error sending attachment: ${error}`);
           }
         }
       } else {
@@ -105,8 +105,8 @@ export const eventChatWoot = async (body: any) => {
 
         try {
           sendText(formatText, chatId, body.inbox.name);
-        } catch (err) {
-          console.log(`🚨 error sending message: ${err}`);
+        } catch (error) {
+          console.log(`🚨 error sending message: ${error}`);
         }
       }
     }
