@@ -15,3 +15,4 @@ services:
       - CODECHAT_API_KEY=${CODECHAT_API_KEY:-t8OOEeISKzpmc3jjcMqBWYSaJsafdefer}
       - TOSIGN=${TOSIGN:-false}
       - IMPORT_MESSAGES_SENT=${IMPORT_MESSAGES_SENT:-false}
+    restart: always
