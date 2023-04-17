@@ -87,16 +87,27 @@ export const eventChatWoot = async (body: any) => {
       if (message.attachments && message.attachments.length > 0) {
 
         for (const attachment of message.attachments) {
-          console.log(attachment)
-          sendAttachment(
-            chatId,
-            attachment.data_url,
-            body.inbox.name,
-            formatText
-          );
+          console.log(`⚡️ sending attachment`, attachment);
+
+          try {
+            sendAttachment(
+              chatId,
+              attachment.data_url,
+              body.inbox.name,
+              formatText
+            );
+          } catch (err) {
+            console.log(`🚨 error sending attachment: ${err}`);
+          }
         }
       } else {
-        sendText(formatText, chatId, body.inbox.name);
+        console.log(`⚡️ sending message to ${chatId}`, formatText);
+
+        try {
+          sendText(formatText, chatId, body.inbox.name);
+        } catch (err) {
+          console.log(`🚨 error sending message: ${err}`);
+        }
       }
     }
   }
