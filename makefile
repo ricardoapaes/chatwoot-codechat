@@ -48,4 +48,4 @@ codechat-full:
 		up -d --build
 
 logs:
-	docker compose logs -f --tail 100 api
+	docker compose logs -f --tail 200 api

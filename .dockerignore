@@ -1,6 +1,6 @@
 .env
 docker-compose.yml
-docker-compsoe.*.yml
+docker-compose.*.yml
 Dockerfile
 makefile
 LICENSE
