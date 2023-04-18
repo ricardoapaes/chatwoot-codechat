@@ -23,3 +23,4 @@ services:
       - WEBHOOK_GLOBAL_URL=http://api:${PORT-1234}
       - DATABASE_ENABLED=false
       - REDIS_ENABLED=false
+    command: ['node', '--trace-warnings', './dist/src/main.js']
