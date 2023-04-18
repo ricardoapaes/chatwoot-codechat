@@ -49,3 +49,6 @@ codechat-full:
 
 logs:
 	docker compose logs -f --tail 200 api
+
+down:
+	docker compose down --remove-orphans
