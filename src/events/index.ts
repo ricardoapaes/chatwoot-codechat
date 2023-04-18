@@ -1,6 +1,7 @@
 import mimeTypes from "mime-types";
 import {
   createBotMessage,
+  createContact,
   createConversation,
   createMessage,
   findContact,
@@ -208,12 +209,31 @@ export const eventCodeChat = async (body: any) => {
         for (const item of data) {
           const number = item.id.split("@")[0];
           const photo = item.profilePictureUrl || null;
-          const find = await findContact(number);
+          const pushName = item.pushName || null;
 
-          if (find) {
-            await updateContact(find.id, {
-              avatar_url: photo,
-            });
+          let contact;
+
+          try {
+            contact = await findContact(number);            
+          } catch(error) {
+            const inbox = await getInbox(instance);
+            contact = await createContact(number, inbox.id, pushName ?? number);
+          }
+
+          const contactId = contact.id || contact.payload.contact.id;
+
+          if (contactId) {
+            let attributes;
+
+            if(photo != null) {
+              attributes.avatar_url = photo;
+            }
+
+            if(pushName != null) {
+              attributes.name = pushName;
+            }
+
+            await updateContact(contactId, attributes);
           }
         }
       }
