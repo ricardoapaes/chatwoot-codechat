@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  codechat:
+    environment:
+      - DATABASE_ENABLED=true
+      - DATABASE_CONNECTION_URI=mongodb://root:${CODECHAT_DB_PASSWORD}@mongodb/?authSource=admin&readPreference=primary&ssl=false&directConnection=true
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./data/mongodb:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: ${CODECHAT_DB_PASSWORD}

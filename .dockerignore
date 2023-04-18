@@ -1,1 +1,13 @@
 .env
+docker-compose.yml
+docker-compsoe.*.yml
+Dockerfile
+makefile
+LICENSE
+readme.md
+.gitignore
+.env.example
+.gitattributes
+node_modules/
+dist/
+.data/
